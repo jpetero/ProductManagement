@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewBag.Title = "Products List";
+}
+
+
+<h1>All Products</h1>
+@if (Model.Any())
+{
+    <a class="btn btn-primary mb-3" style="width:auto;"
+       asp-action="CreateProduct" asp-controller="Product">
+        Add a new product
+    </a>
+    <div class="card-deck">
+        @foreach (Product product in Model)
+        {
+            var photoPath = "~/Images/" + (product.PhotoPath ?? "noimage.png");
+            <div class="card m-3" style="min-width: 18rem; max-width: 30.5%;">
+                <div class="card-header">
+                    <h3>@product.Name</h3>
+                    <h2>@product.Price</h2>
+                </div>
+                <img class="card-img-top imageThumbnail" src="@photoPath" asp-append-version="true" />
+                <div class="card-footer text-center">
+                    <a asp-controller="Product" asp-action="Details" asp-route-id="@product.Id"
+                        class="btn btn-primary m-1">View
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="card">
+        <div class="card-header">
+            No products created yet
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                Use the button below to create a product
+            </h5>
+            <a class="btn btn-primary" style="width:auto;"
+               asp-action="CreateProduct" asp-controller="Product">
+                Create Product
+            </a>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script src="~/js/CustomScript.js"></script>
+}

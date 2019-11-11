@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAemfMDzu6lUKLq/KHEupl6QAAAAACAAAAAAAQZgAAAAEAACAAAACWbyfV87ujKeEFL39Am8DIpLjsTvij4kFRYXv6+FM8tgAAAAAOgAAAAAIAACAAAACLaxc9U5zjhzPwxhwbHnNaKqOYPf9dN2PaDqhMUcLA04AAAABbQTuPtFBkSQ02Nwog3YxXyQo31iLD8EADHkjfK7cjJe+25AA2z4ImFzxFDAjdSy5IMeFiy6arwQ8e2O/ZlrXZKZydU9ufAJq0Bb9kgn2Zrq87a9yNBC5XuyPWRJkGNRJVsI5y0HyKEw398Fq8M27p7N7CZ9IXiVwCVYcU0CAeK0AAAABPHwK3frnDX99cRDUrb7kefzecKMauFzKGFgrYsdYYSHNvbC+tP4CjA7WOsPGhYBFuxT9Q/s1PStclYyaUy9vE</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="EmployeeDBConnection">
+      <Value>Data Source=tcp:paymentcollectionappdbserver.database.windows.net,1433%3bInitial Catalog=PaymentCollectionApp_db%3bUser Id=juliuspetero%40paymentcollectionappdbserver%3bPassword=kyambogo45JP%40</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="EmployeeManagement.Models.AppDbContext">
+      <Value>Data Source=tcp:paymentcollectionappdbserver.database.windows.net,1433%3bInitial Catalog=PaymentCollectionApp_db%3bUser Id=juliuspetero%40paymentcollectionappdbserver%3bPassword=kyambogo45JP%40</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

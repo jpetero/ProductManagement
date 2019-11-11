@@ -1,0 +1,28 @@
+﻿@model ProductDetailsViewModel
+
+@{
+    ViewBag.Title = "Product Detals";
+    var photoPath = "~/Images/" + (Model.Product.PhotoPath ?? "noimage.png");
+}
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                @Model.Product.Name
+            </div>
+
+            <div class="card-body text-center">
+                <img class="imageThumbnail" src="@photoPath" asp-append-version="true" />
+                <h4>Price : @Model.Product.Price</h4>
+                <h4>Description : @Model.Product.Description</h4>
+            </div>
+            <div class="card-footer text-center">
+                <a asp-controller="home" asp-action="index" class="btn btn-primary">Back</a>
+                <a asp-controller="Transaction" asp-action="Buy" asp-route-id="@Model.Product.Id" class="btn btn-primary">Buy</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+

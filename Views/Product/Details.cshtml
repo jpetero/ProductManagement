@@ -1,0 +1,46 @@
+﻿@model ProductDetailsViewModel
+
+@{
+    ViewBag.Title = "Product Detals";
+    var photoPath = "~/Images/" + (Model.Product.PhotoPath ?? "noimage.png");
+}
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                @Model.Product.Name
+            </div>
+
+            <div class="card-body text-center">
+                <img class="imageThumbnail" src="@photoPath" asp-append-version="true" />
+
+                <h4>Product ID : @Model.Product.Id</h4>
+                <h4>Price : @Model.Product.Price</h4>
+                <h4>Description : @Model.Product.Description</h4>
+            </div>
+            <div class="card-footer text-center">
+                <form asp-action="DeleteProduct" asp-controller="Product" asp-route-id="@Model.Product.Id" method="post">
+                    <a asp-controller="Product" asp-action="index" class="btn btn-primary">Back</a>
+                    <a asp-action="Edit" asp-controller="Product" asp-route-id="@Model.Product.Id" class="btn btn-primary">Edit</a>
+                    <span style="display:none" id="confirmDeleteSpan_@Model.Product.Id">
+                        <span>Are you sure you want to delete</span>
+                        <button type="submit" class="btn btn-danger">Yes</button>
+                        <a href="#" class="btn btn-primary" onclick="confirmDelete('@Model.Product.Id', false)">No</a>
+                    </span>
+                    <span id="deleteSpan_@Model.Product.Id">
+                        <a href="#" class="btn btn-danger"
+                           onclick="confirmDelete('@Model.Product.Id', true)">
+                            Delete
+                        </a>
+                    </span>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/CustomScript.js"></script>
+}

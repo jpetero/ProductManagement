@@ -1,0 +1,12 @@
+﻿@model TransactionProcessingResponse
+
+<h1>Your transaction is being processed</h1>
+
+<div class="alert-info">
+    <h3>Transaction Processing Message from Xente API</h3>
+    <small>@Model.Message</small>
+</div>
+<hr />
+<br />
+<h3>Please confirm the sandbox payment in your email</h3>
+<a class="btn btn-primary" style="width:auto" asp-action="Index" asp-controller="Home">Go back</a>
